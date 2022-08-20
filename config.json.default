@@ -1,0 +1,10 @@
+{
+	"token": "bot_token",
+	"guildId": "guild_id",
+	"clientId": "bot_user_id",
+	"blockedRoles": [
+		"id_of_staff_role",
+		"id_of_bot_role",
+		"insert_other_roles_here"
+	]
+}
