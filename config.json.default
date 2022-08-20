@@ -6,5 +6,6 @@
 		"id_of_staff_role",
 		"id_of_bot_role",
 		"insert_other_roles_here"
-	]
+	],
+	"debugUser": "your_user_id"
 }

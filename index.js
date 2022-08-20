@@ -18,7 +18,8 @@ const {
 	clientId,
 	guildId,
 	token,
-	blockedRoles
+	blockedRoles,
+	debugUser
 } = require('./config.json');
 const {
 	config
@@ -137,7 +138,7 @@ bot.on('interactionCreate', async interaction => {
 			});
 			break;
 		case 'votes':
-			if (!interaction.member._roles.some(role => blockedRoles.includes(role))) {
+			if (!interaction.member._roles.some(role => blockedRoles.includes(role)) && interaction.user.id != debugUser) {
 				interaction.reply({
 					content: "You are not allowed to use this command!",
 					ephemeral: true
@@ -163,7 +164,7 @@ bot.on('interactionCreate', async interaction => {
 			break;
 			// clear command
 		case 'clear':
-			if (!interaction.member._roles.some(role => blockedRoles.includes(role))) {
+			if (!interaction.member._roles.some(role => blockedRoles.includes(role)) && interaction.user.id != debugUser) {
 				interaction.reply({
 					content: "You are not allowed to use this command!",
 					ephemeral: true
