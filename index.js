@@ -115,6 +115,13 @@ bot.on('interactionCreate', async interaction => {
 
 	switch (commandName) {
 		case 'vote':
+			if (interaction.options.getMember('user').user.id == interaction.user.id) {
+				interaction.reply({
+					content: "You can't vote for yourself!",
+					ephemeral: true
+				});
+				return;
+			}
 			if (interaction.options.getMember("user")._roles.some(role => blockedRoles.includes(role))) {
 				interaction.reply({
 					content: "You are not allowed to vote for staff!",
